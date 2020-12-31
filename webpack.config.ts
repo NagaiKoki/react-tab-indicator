@@ -2,7 +2,7 @@ import * as path from "path";
 import { Configuration } from "webpack";
 
 const config: Configuration = {
-  entry: "./src/index.tsx",
+  entry: "./dist/index.tsx",
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
