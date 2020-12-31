@@ -1,7 +1,11 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  text: string;
+  onClick: () => void;
+};
 
 export const TabItem: React.FC<Props> = (props) => {
-  return <div>item</div>;
+  const { text, onClick } = props;
+  return <li onClick={onClick}>{text}</li>;
 };
