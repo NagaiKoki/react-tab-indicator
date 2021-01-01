@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from "react";
+import React, { useState, CSSProperties, useCallback } from "react";
 import styled from "styled-components";
 import { TabItem } from "./TabItem";
 
@@ -11,6 +11,10 @@ export const TabList: React.FC<Props> = (props) => {
   const { items, borderStyles } = props;
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  const handleSelectItem = useCallback((index: number) => {
+    setSelectedIndex(index);
+  }, []);
+
   const tabItems = items.map((item, i) => {
     return (
       <TabItem
@@ -19,7 +23,7 @@ export const TabList: React.FC<Props> = (props) => {
         text={item}
         selectedIndex={selectedIndex}
         borderStyles={borderStyles}
-        onClick={() => {}}
+        onSelect={handleSelectItem}
       />
     );
   });

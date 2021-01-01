@@ -6,16 +6,16 @@ type Props = {
   index: number;
   selectedIndex: number;
   borderStyles?: CSSProperties;
-  onClick: () => void;
+  onSelect: (index: number) => void;
 };
 
 export const TabItem: React.FC<Props> = (props) => {
-  const { text, index, selectedIndex, borderStyles, onClick } = props;
+  const { text, index, selectedIndex, borderStyles, onSelect } = props;
   const isSelected = index === selectedIndex;
 
   return (
     <Item
-      onClick={onClick}
+      onClick={() => onSelect(index)}
       isSelected={isSelected}
       style={isSelected ? borderStyles : undefined}
     >
