@@ -1,9 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { mockData } from "./mockData";
-import { TabList } from "../src/TabList";
+import { App } from "./app";
 
-ReactDOM.render(
-  <TabList items={mockData.items} />,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));

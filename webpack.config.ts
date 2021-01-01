@@ -14,6 +14,10 @@ const config: Configuration = {
         exclude: /node_modules/,
         loader: "ts-loader",
       },
+      {
+        test: /\.css$/,
+        loaders: ["style-loader", "css-loader"],
+      },
     ],
   },
   resolve: {
