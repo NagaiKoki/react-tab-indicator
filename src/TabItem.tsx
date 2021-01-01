@@ -24,8 +24,12 @@ export const TabItem: React.FC<Props> = React.memo((props) => {
   );
 });
 
-const Item = styled.li<{ isSelected: boolean }>`
+const Item = styled.button<{ isSelected: boolean }>`
   padding: 5px 10px;
-  list-style: none;
+  background: none;
+  border: none;
   cursor: pointer;
+  &:focus {
+    outline: none;
+  }
 `;
