@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { mockData } from "./mockData";
+import { mockItems, borderStyles } from "./mockData";
 import { TabList } from "../src";
 import "./styles.css";
 
@@ -9,7 +9,7 @@ export const App = () => {
     <Container>
       <Title>react-tab-indicator</Title>
       <TabWrapper>
-        <TabList items={mockData.items} />
+        <TabList items={mockItems} borderStyles={borderStyles} />
       </TabWrapper>
     </Container>
   );
