@@ -9,7 +9,7 @@ type Props = {
   onSelect: (index: number) => void;
 };
 
-export const TabItem: React.FC<Props> = (props) => {
+export const TabItem: React.FC<Props> = React.memo((props) => {
   const { text, index, selectedIndex, borderStyles, onSelect } = props;
   const isSelected = index === selectedIndex;
 
@@ -22,7 +22,7 @@ export const TabItem: React.FC<Props> = (props) => {
       {text}
     </Item>
   );
-};
+});
 
 const Item = styled.li<{ isSelected: boolean }>`
   padding: 5px 10px;
