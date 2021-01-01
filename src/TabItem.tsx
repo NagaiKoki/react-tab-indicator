@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 type Props = {
   text: string;
@@ -7,5 +8,9 @@ type Props = {
 
 export const TabItem: React.FC<Props> = (props) => {
   const { text, onClick } = props;
-  return <li onClick={onClick}>{text}</li>;
+  return <Item onClick={onClick}>{text}</Item>;
 };
+
+const Item = styled.li`
+  list-style: none;
+`;
