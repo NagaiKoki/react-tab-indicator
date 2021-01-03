@@ -5,6 +5,7 @@
     "strict": true,
     "module": "commonjs",
     "jsx": "react",
-    "lib": ["es5", "es6", "dom"]
+    "lib": ["es5", "es6", "dom"],
+    "esModuleInterop": true
   }
 }
