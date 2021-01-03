@@ -1,3 +1,3 @@
 import { TabList } from "./TabList";
 
-export { TabList };
+export { TabList as TabIndicator };
