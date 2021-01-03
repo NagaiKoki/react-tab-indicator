@@ -1,3 +1,8 @@
+/**
+ * funtion for calculate transformX width
+ * e.g [0, 170, 280, 450, 830]
+ * @param widthMap the array width of each tab
+ */
 export const calcTransformXWidth = (widthMap: number[]) => {
   let results: number[] = [0, widthMap[0]];
 
