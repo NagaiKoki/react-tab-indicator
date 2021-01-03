@@ -14,11 +14,7 @@ export const TabItem: React.FC<Props> = React.memo((props) => {
   const isSelected = index === selectedIndex;
 
   return (
-    <Item
-      onClick={() => onSelect(index)}
-      isSelected={isSelected}
-      style={isSelected ? borderStyles : undefined}
-    >
+    <Item onClick={() => onSelect(index)} isSelected={isSelected}>
       {text}
     </Item>
   );
