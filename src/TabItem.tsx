@@ -5,12 +5,11 @@ type Props = {
   text: string;
   index: number;
   selectedIndex: number;
-  borderStyles?: CSSProperties;
   onSelect: (index: number) => void;
 };
 
 export const TabItem: React.FC<Props> = React.memo((props) => {
-  const { text, index, selectedIndex, borderStyles, onSelect } = props;
+  const { text, index, selectedIndex, onSelect } = props;
   const isSelected = index === selectedIndex;
 
   return (
@@ -21,6 +20,7 @@ export const TabItem: React.FC<Props> = React.memo((props) => {
 });
 
 const Item = styled.button<{ isSelected: boolean }>`
+  margin-bottom: 5px;
   padding: 5px 10px;
   background: none;
   border: none;

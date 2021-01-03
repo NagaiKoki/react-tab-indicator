@@ -5,11 +5,17 @@ import { TabList } from "../src";
 import "./styles.css";
 
 export const App = () => {
+  const { borderColor, borderHeight, transformSpeed } = borderStyles;
   return (
     <Container>
       <Title>react-tab-indicator</Title>
       <TabWrapper>
-        <TabList items={mockItems} borderStyles={borderStyles} />
+        <TabList
+          items={mockItems}
+          borderColor={borderColor}
+          borderHeight={borderHeight}
+          transformSpeed={transformSpeed}
+        />
       </TabWrapper>
     </Container>
   );

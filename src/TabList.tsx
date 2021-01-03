@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  CSSProperties,
-  useRef,
-  useCallback,
-  useEffect,
-} from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import styled from "styled-components";
 import { TabItem } from "./TabItem";
 import { TabIndicator } from "./Indicator";
@@ -12,11 +6,13 @@ import { calcTransformXWidth } from "./utils";
 
 type Props = {
   items: string[];
-  borderStyles?: CSSProperties;
+  borderColor?: string;
+  borderHeight?: number;
+  transformSpeed?: number;
 };
 
 export const TabList: React.FC<Props> = (props) => {
-  const { items, borderStyles } = props;
+  const { items, borderColor, borderHeight, transformSpeed } = props;
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [transformXMap, setTransformXMap] = useState<number[]>([]);
   const [widthMap, setWidthMap] = useState<number[]>([]);
@@ -43,7 +39,6 @@ export const TabList: React.FC<Props> = (props) => {
           index={i}
           text={item}
           selectedIndex={selectedIndex}
-          borderStyles={borderStyles}
           onSelect={handleSelectItem}
         />
       </Wrapper>
@@ -57,6 +52,9 @@ export const TabList: React.FC<Props> = (props) => {
         <TabIndicator
           transformX={transformXMap[selectedIndex]}
           width={widthMap[selectedIndex]}
+          borderColor={borderColor}
+          borderHeight={borderHeight}
+          transformSpeed={transformSpeed}
         />
       </IndicatorWrapper>
     </Container>
