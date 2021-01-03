@@ -8,6 +8,7 @@ import React, {
 import styled from "styled-components";
 import { TabItem } from "./TabItem";
 import { TabIndicator } from "./Indicator";
+import { calcTransformXWidth } from "./utils";
 
 type Props = {
   items: string[];
@@ -17,13 +18,15 @@ type Props = {
 export const TabList: React.FC<Props> = (props) => {
   const { items, borderStyles } = props;
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [widthArray, setWidthArray] = useState<number[]>([]);
+  const [transformXMap, setTransformXMap] = useState<number[]>([]);
+  const [widthMap, setWidthMap] = useState<number[]>([]);
   const itemRefs = useRef<HTMLLIElement[]>([]);
 
   useEffect(() => {
     const widthMap = itemRefs.current.map((item) => item.clientWidth);
-
-    setWidthArray(widthMap);
+    const calcTransformX = calcTransformXWidth(widthMap);
+    setWidthMap(widthMap);
+    setTransformXMap(calcTransformX);
   }, [itemRefs]);
 
   const handleSelectItem = useCallback((index: number) => {
@@ -51,7 +54,10 @@ export const TabList: React.FC<Props> = (props) => {
     <Container>
       <ListWrapper>{tabItems}</ListWrapper>
       <IndicatorWrapper>
-        <TabIndicator transformX={widthArray[selectedIndex]} />
+        <TabIndicator
+          transformX={transformXMap[selectedIndex]}
+          width={widthMap[selectedIndex]}
+        />
       </IndicatorWrapper>
     </Container>
   );
