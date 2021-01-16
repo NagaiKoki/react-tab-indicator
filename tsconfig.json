@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "esnext",
     "strict": true,
     "declaration": true,
     "outDir": "./dist",
     "module": "esnext",
     "jsx": "react",
-    "lib": ["es5", "es6", "dom"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "lib": ["dom", "es2015"]
   },
   "include": ["src/*"]
 }

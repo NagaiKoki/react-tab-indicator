@@ -1,15 +1,23 @@
 {
   "name": "react-tab-indicator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/index.js",
   "license": "MIT",
   "author": "Koki Nagai",
   "scripts": {
+    "generate-types": "tsc --emitDeclarationOnly --declarationDir ./dist",
     "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production --progress -p",
+    "build": "npm run generate-types && babel ./src --out-dir dist --extensions \".ts,.tsx\"",
     "prepare": "npm run build"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/styled-components": "^5.1.7",
@@ -24,7 +32,7 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.2.1"
