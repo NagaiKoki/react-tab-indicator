@@ -28,6 +28,7 @@ const config: Configuration = {
     publicPath: "/dist",
     host: "0.0.0.0",
   },
+  devtool: "source-map",
 };
 
 export default config;

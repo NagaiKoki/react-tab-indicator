@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "target": "es5",
+    "target": "es2015",
     "strict": true,
-    "module": "commonjs",
+    "declaration": true,
+    "module": "esnext",
     "jsx": "react",
     "lib": ["es5", "es6", "dom"],
     "esModuleInterop": true
-  }
+  },
+  "include": ["src/*"]
 }
