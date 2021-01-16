@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import TabIndicator from "react-tab-indicator";
 import { mockItems, borderStyles } from "./mockData";
-import { TabIndicator } from "../src";
 import "./styles.css";
 
 export const App = () => {
