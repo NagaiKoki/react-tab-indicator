@@ -1,12 +1,13 @@
 {
   "name": "react-tab-indicator",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "license": "MIT",
   "author": "Koki Nagai",
   "scripts": {
     "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production --progress -p"
+    "build": "webpack --mode production --progress -p",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

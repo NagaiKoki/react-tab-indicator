@@ -2,10 +2,10 @@ const path = require("path");
 
 module.exports = () => {
   return {
-    entry: "./src/index.ts",
+    entry: "./index.tsx",
     output: {
       path: path.join(__dirname, "dist"),
-      filename: "index.js",
+      filename: "bundle.js",
     },
     module: {
       rules: [
@@ -28,5 +28,6 @@ module.exports = () => {
       publicPath: "/dist",
       host: "0.0.0.0",
     },
+    devtool: "source-map",
   };
 };
