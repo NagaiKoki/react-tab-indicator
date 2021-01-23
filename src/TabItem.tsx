@@ -2,18 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 type Props = {
+  id: number;
   text: string;
-  index: number;
-  selectedIndex: number;
+  selectedId: number;
   onSelect: (index: number) => void;
 };
 
 export const TabItem: React.FC<Props> = React.memo((props) => {
-  const { text, index, selectedIndex, onSelect } = props;
-  const isSelected = index === selectedIndex;
+  const { text, id, selectedId, onSelect } = props;
+  const isSelected = id === selectedId;
 
   return (
-    <Item onClick={() => onSelect(index)} isSelected={isSelected}>
+    <Item onClick={() => onSelect(id)} isSelected={isSelected}>
       {text}
     </Item>
   );

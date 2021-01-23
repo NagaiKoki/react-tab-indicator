@@ -5,15 +5,16 @@ import { TabIndicator } from "./Indicator";
 import { calcTransformXWidth } from "./utils";
 
 type Props = {
-  items: string[];
+  items: { id: number; value: string }[];
   borderColor?: string;
   borderHeight?: number;
   transformSpeed?: number;
+  onClick: (id: number) => void;
 };
 
 export const TabList: React.FC<Props> = (props) => {
-  const { items, borderColor, borderHeight, transformSpeed } = props;
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const { items, borderColor, borderHeight, transformSpeed, onClick } = props;
+  const [selectedId, setSelectedId] = useState(0);
   const [transformXMap, setTransformXMap] = useState<number[]>([]);
   const [widthMap, setWidthMap] = useState<number[]>([]);
   const itemRefs = useRef<HTMLLIElement[]>([]);
@@ -25,20 +26,22 @@ export const TabList: React.FC<Props> = (props) => {
     setTransformXMap(calcTransformX);
   }, [itemRefs]);
 
-  const handleSelectItem = useCallback((index: number) => {
-    setSelectedIndex(index);
+  const handleSelectItem = useCallback((id: number) => {
+    setSelectedId(id);
+    onClick(id);
   }, []);
 
-  const tabItems = items.map((item, i) => {
+  const tabItems = items.map((item) => {
+    const { id, value } = item;
     return (
       <Wrapper
-        key={i}
-        ref={(ele) => (ele ? (itemRefs.current[i] = ele) : undefined)}
+        key={id}
+        ref={(ele) => (ele ? (itemRefs.current[id] = ele) : undefined)}
       >
         <TabItem
-          index={i}
-          text={item}
-          selectedIndex={selectedIndex}
+          id={id}
+          text={value}
+          selectedId={selectedId}
           onSelect={handleSelectItem}
         />
       </Wrapper>
@@ -50,8 +53,8 @@ export const TabList: React.FC<Props> = (props) => {
       <ListWrapper>{tabItems}</ListWrapper>
       <IndicatorWrapper>
         <TabIndicator
-          transformX={transformXMap[selectedIndex]}
-          width={widthMap[selectedIndex]}
+          transformX={transformXMap[selectedId]}
+          width={widthMap[selectedId]}
           borderColor={borderColor}
           borderHeight={borderHeight}
           transformSpeed={transformSpeed}
