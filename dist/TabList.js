@@ -81,7 +81,8 @@ var TabList = function TabList(props) {
   var items = props.items,
       borderColor = props.borderColor,
       borderHeight = props.borderHeight,
-      transformSpeed = props.transformSpeed;
+      transformSpeed = props.transformSpeed,
+      onClick = props.onClick;
 
   var _useState = (0, _react.useState)(0),
       _useState2 = _slicedToArray(_useState, 2),
@@ -109,6 +110,7 @@ var TabList = function TabList(props) {
   }, [itemRefs]);
   var handleSelectItem = (0, _react.useCallback)(function (index) {
     setSelectedIndex(index);
+    onClick(index);
   }, []);
   var tabItems = items.map(function (item, i) {
     return /*#__PURE__*/_react["default"].createElement(Wrapper, {
