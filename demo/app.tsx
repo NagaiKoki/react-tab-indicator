@@ -6,6 +6,11 @@ import "./styles.css";
 
 export const App = () => {
   const { borderColor, borderHeight, transformSpeed } = borderStyles;
+
+  const handleOnClick = (index: number) => {
+    console.log(mockItems[index]);
+  };
+
   return (
     <Container>
       <Title>react-tab-indicator</Title>
@@ -15,6 +20,7 @@ export const App = () => {
           borderColor={borderColor}
           borderHeight={borderHeight}
           transformSpeed={transformSpeed}
+          onClick={handleOnClick}
         />
       </TabWrapper>
     </Container>

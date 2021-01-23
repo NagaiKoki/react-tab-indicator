@@ -9,10 +9,11 @@ type Props = {
   borderColor?: string;
   borderHeight?: number;
   transformSpeed?: number;
+  onClick: (index: number) => void;
 };
 
-export const TabList: React.FC<Props> = (props) => {
-  const { items, borderColor, borderHeight, transformSpeed } = props;
+export const TabList: React.FC<Props> = React.memo((props) => {
+  const { items, borderColor, borderHeight, transformSpeed, onClick } = props;
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [transformXMap, setTransformXMap] = useState<number[]>([]);
   const [widthMap, setWidthMap] = useState<number[]>([]);
@@ -27,6 +28,7 @@ export const TabList: React.FC<Props> = (props) => {
 
   const handleSelectItem = useCallback((index: number) => {
     setSelectedIndex(index);
+    onClick(index);
   }, []);
 
   const tabItems = items.map((item, i) => {
@@ -59,7 +61,7 @@ export const TabList: React.FC<Props> = (props) => {
       </IndicatorWrapper>
     </Container>
   );
-};
+});
 
 const Container = styled.div``;
 

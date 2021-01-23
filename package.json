@@ -4,6 +4,16 @@
   "main": "./dist/index.js",
   "license": "MIT",
   "author": "Koki Nagai",
+  "description": "A high performance Tabs with indicator based React component",
+  "homepage": "https://github.com/NagaiKoki/react-tab-indicator",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:NagaiKoki/react-tab-indicator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NagaiKoki/react-tab-indicator/issues",
+    "email": "musclewinfo@gmail.com"
+  },
   "scripts": {
     "generate-types": "tsc --emitDeclarationOnly --declarationDir ./dist",
     "start": "webpack-dev-server --mode development",

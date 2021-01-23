@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 type Props = {
-  text: string;
   index: number;
+  text: string;
   selectedIndex: number;
   onSelect: (index: number) => void;
 };
