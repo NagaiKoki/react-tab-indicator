@@ -77,7 +77,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var TabList = function TabList(props) {
+var TabList = /*#__PURE__*/_react["default"].memo(function (props) {
   var items = props.items,
       borderColor = props.borderColor,
       borderHeight = props.borderHeight,
@@ -132,7 +132,7 @@ var TabList = function TabList(props) {
     borderHeight: borderHeight,
     transformSpeed: transformSpeed
   })));
-};
+});
 
 exports.TabList = TabList;
 
