@@ -1,4 +1,10 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+  useMemo,
+} from "react";
 import styled from "styled-components";
 import { TabItem } from "./TabItem";
 import { TabIndicator } from "./Indicator";
@@ -31,21 +37,25 @@ export const TabList: React.FC<Props> = React.memo((props) => {
     onClick(index);
   }, []);
 
-  const tabItems = items.map((item, i) => {
-    return (
-      <Wrapper
-        key={i}
-        ref={(ele) => (ele ? (itemRefs.current[i] = ele) : undefined)}
-      >
-        <TabItem
-          index={i}
-          text={item}
-          selectedIndex={selectedIndex}
-          onSelect={handleSelectItem}
-        />
-      </Wrapper>
-    );
-  });
+  const tabItems = useMemo(
+    () =>
+      items.map((item, i) => {
+        return (
+          <Wrapper
+            key={i}
+            ref={(ele) => (ele ? (itemRefs.current[i] = ele) : undefined)}
+          >
+            <TabItem
+              index={i}
+              text={item}
+              selectedIndex={selectedIndex}
+              onSelect={handleSelectItem}
+            />
+          </Wrapper>
+        );
+      }),
+    []
+  );
 
   return (
     <Container>

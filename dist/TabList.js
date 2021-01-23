@@ -112,19 +112,21 @@ var TabList = /*#__PURE__*/_react["default"].memo(function (props) {
     setSelectedIndex(index);
     onClick(index);
   }, []);
-  var tabItems = items.map(function (item, i) {
-    return /*#__PURE__*/_react["default"].createElement(Wrapper, {
-      key: i,
-      ref: function ref(ele) {
-        return ele ? itemRefs.current[i] = ele : undefined;
-      }
-    }, /*#__PURE__*/_react["default"].createElement(_TabItem.TabItem, {
-      index: i,
-      text: item,
-      selectedIndex: selectedIndex,
-      onSelect: handleSelectItem
-    }));
-  });
+  var tabItems = (0, _react.useMemo)(function () {
+    return items.map(function (item, i) {
+      return /*#__PURE__*/_react["default"].createElement(Wrapper, {
+        key: i,
+        ref: function ref(ele) {
+          return ele ? itemRefs.current[i] = ele : undefined;
+        }
+      }, /*#__PURE__*/_react["default"].createElement(_TabItem.TabItem, {
+        index: i,
+        text: item,
+        selectedIndex: selectedIndex,
+        onSelect: handleSelectItem
+      }));
+    });
+  }, []);
   return /*#__PURE__*/_react["default"].createElement(Container, null, /*#__PURE__*/_react["default"].createElement(ListWrapper, null, tabItems), /*#__PURE__*/_react["default"].createElement(IndicatorWrapper, null, /*#__PURE__*/_react["default"].createElement(_Indicator.TabIndicator, {
     transformX: transformXMap[selectedIndex],
     width: widthMap[selectedIndex],
